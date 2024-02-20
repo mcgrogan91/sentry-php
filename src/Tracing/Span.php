@@ -34,6 +34,16 @@ class Span
     protected $traceId;
 
     /**
+     * @var SegmentId Segment ID
+     */
+    protected $segmentId;
+
+    /**
+     * @var bool
+     */
+    protected $isSegment;
+
+    /**
      * @var string|null Description of the span
      */
     protected $description;
@@ -79,6 +89,11 @@ class Span
     protected $endTimestamp;
 
     /**
+     * @var float
+     */
+    protected $exclusiveTime;
+
+    /**
      * @var SpanRecorder|null Reference instance to the {@see SpanRecorder}
      */
     protected $spanRecorder;
@@ -92,6 +107,12 @@ class Span
      * @var array<string, array<string, MetricsSummary>>
      */
     protected $metricsSummary = [];
+
+    /**
+     * @var string|null
+     * @see https://develop.sentry.dev/sdk/performance/trace-origin/
+     */
+    protected $origin;
 
     /**
      * Constructor.
